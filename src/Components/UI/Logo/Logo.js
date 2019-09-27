@@ -1,7 +1,7 @@
 import React from "react";
 
 import Logo from "../../../assets/img/LogoHematixColor.png";
-import LogoBlanco from "../../../assets/img/LogoHematixBlanco.png";
+import LogoBlanco from "../../../assets/img/LogoClienteBlanco.png";
 import classes from "./Logo.module.css";
 
 const logo = props => {

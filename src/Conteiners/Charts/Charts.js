@@ -10,7 +10,14 @@ import axios from "axios";
 const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1,
-		marginTop: "5%"
+		marginTop: "2%",
+		marginBottom: "5%"
+	},
+	sectionDesktop: {
+		display: "inhirit",
+		[theme.breakpoints.down("sm")]: {
+			display: "none"
+		}
 	}
 }));
 
@@ -36,7 +43,7 @@ function Charts(props) {
 		if (props.selectedMac !== "") {
 			axios
 				.get(
-					"http://medicosoft.com.mx:2052/api/Measurements/MeasurementsData/" +
+					"http://192.168.0.34:2052/api/Measurements/MeasurementsData/" +
 						props.selectedMac,
 					{
 						data: {
@@ -47,8 +54,9 @@ function Charts(props) {
 					}
 				)
 				.then(res => {
-					if (res.result.length > 0) {
-						const values = res.result;
+					console.log(res);
+					if (res.data.results.length > 0) {
+						const values = res.data.results;
 						const coordinates = [];
 						const battery = {
 							data: [],
@@ -63,17 +71,20 @@ function Charts(props) {
 						const dateTimeArray = [];
 
 						for (let index = 0; index < values.length; index++) {
-							coordinates.push({
-								latitude: values[index].latitude,
-								longitude: values[index].longitude
-							});
+							if (values[index].latitude !== 0) {
+								coordinates.push({
+									latitude: values[index].latitude,
+									longitude: values[index].longitude
+								});
+							}
+
 							battery.data.push(values[index].batteryLevel);
 							dateTimeArray.push(values[index].dateTime);
-							temperature.data.push(values[index].temperature.Value);
+							temperature.data.push(values[index].temperature.value);
 						}
 						battery.dateTime = dateTimeArray;
 						temperature.dateTime = dateTimeArray;
-						temperature.unit = values[0].temperature.Unit;
+						temperature.unit = values[0].temperature.unit;
 
 						setMapCoordinates({ coordinates: coordinates });
 						setTemperatureData(temperature);
@@ -81,19 +92,46 @@ function Charts(props) {
 					}
 				});
 		}
-	});
+	}, [props.selectedMac, props.endDate, props.startDate]);
 
 	return (
 		<div className={classes.root}>
-			<Grid container spacing={10}>
-				<Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-					<Card type="Mapa" data={mapCoordinates} />
+			<Grid container spacing={10} justify="center" alignItems="center">
+				<Grid
+					item
+					xs={false}
+					sm={false}
+					md={2}
+					lg={3}
+					xl={3}
+					className={classes.sectionDesktop}
+				></Grid>
+				<Grid
+					item
+					xs={12}
+					sm={12}
+					md={8}
+					lg={5}
+					xl={5}
+					className={classes.temperature}
+				>
+					<Card type="Temperatura" data={temperatureData} />
 				</Grid>
-				<Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+				<Grid
+					item
+					xs={false}
+					sm={false}
+					md={2}
+					lg={3}
+					xl={3}
+					className={classes.sectionDesktop}
+				></Grid>
+
+				<Grid item xs={12} sm={6} md={4} lg={4} xl={4}>
 					<Card type="Batería" data={batteryData} />
 				</Grid>
-				<Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-					<Card type="Temperatura" data={temperatureData} />
+				<Grid item xs={12} sm={6} md={4} lg={4} xl={4}>
+					<Card type="Mapa" data={mapCoordinates} />
 				</Grid>
 			</Grid>
 		</div>

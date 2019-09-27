@@ -10,12 +10,12 @@ import Chart from "react-apexcharts";
 
 const googleMapsApiKey = "AIzaSyBgq1CzLtAXz1zsIM_MZIa6pYzpA5XSWiM";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
 	card: {
 		maxWidth: "100%",
 		width: "100%"
 	}
-});
+}));
 
 function Cards(props) {
 	const classes = useStyles();
@@ -26,6 +26,8 @@ function Cards(props) {
 		const mapPoints = {
 			data: props.data.coordinates
 		};
+
+		console.log("Mapa:", mapPoints);
 
 		renderChartOrMap = (
 			<Map
@@ -68,10 +70,6 @@ function Cards(props) {
 				<Typography gutterBottom variant="h5" component="h2">
 					{props.type}
 				</Typography>
-				{/* <Typography variant="body2" color="textSecondary" component="p">
-					Lizards are a widespread group of squamate reptiles, with over 6,000
-					species, ranging across all continents except Antarctica
-				</Typography> */}
 			</CardContent>
 		</Card>
 	);
