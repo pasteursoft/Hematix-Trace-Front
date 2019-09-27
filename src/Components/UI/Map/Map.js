@@ -9,18 +9,25 @@ import {
 } from "react-google-maps";
 
 class MapDirectionsRenderer extends React.Component {
-	state = {
+	// state = {
+	// 	directions: null,
+	// 	error: null
+	// };
+
+	mapInfo = {
 		directions: null,
 		error: null
 	};
 
-	componentDidMount() {
+	componentDidUpdate() {
+		console.log("Update");
 		const { places, travelMode } = this.props;
-
-		const waypoints = places.map(p => ({
-			location: { lat: p.latitude, lng: p.longitude },
-			stopover: true
-		}));
+		const waypoints = places.map(p => {
+			return {
+				location: { lat: p.latitude, lng: p.longitude },
+				stopover: true
+			};
+		});
 
 		let origin = { lat: 20.6736, lng: -103.344 };
 		let destination = { lat: 20.6736, lng: -103.344 };
@@ -29,6 +36,8 @@ class MapDirectionsRenderer extends React.Component {
 			origin = waypoints.shift().location;
 			destination = waypoints.pop().location;
 		}
+
+		console.log("After shift:", waypoints);
 
 		const directionsService = new google.maps.DirectionsService();
 		directionsService.route(
@@ -40,23 +49,27 @@ class MapDirectionsRenderer extends React.Component {
 			},
 			(result, status) => {
 				if (status === google.maps.DirectionsStatus.OK) {
-					this.setState({
-						directions: result
-					});
+					// this.setState({
+					// 	directions: result
+					// });
+					console.log("Result:", result);
+					this.mapInfo.directions = result;
 				} else {
-					this.setState({ error: result });
+					// this.setState({ error: result });
+					this.mapInfo.error = result;
 				}
 			}
 		);
 	}
 
 	render() {
-		if (this.state.error) {
-			return <h1>{this.state.error}</h1>;
+		if (this.mapInfo.error) {
+			return <h1>{this.mapInfo.error}</h1>;
 		}
+		console.log("Directions:", this.mapInfo.directions);
 		return (
-			this.state.directions && (
-				<DirectionsRenderer directions={this.state.directions} />
+			this.mapInfo.directions && (
+				<DirectionsRenderer directions={this.mapInfo.directions} />
 			)
 		);
 	}
