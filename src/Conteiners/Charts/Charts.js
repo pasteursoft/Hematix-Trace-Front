@@ -43,7 +43,7 @@ function Charts(props) {
 		if (props.selectedMac !== "") {
 			axios
 				.get(
-					"http://192.168.0.34:2052/api/Measurements/MeasurementsData/" +
+					"http://medicosoft.com.mx:2052/api/Measurements/MeasurementsData/" +
 						props.selectedMac,
 					{
 						data: {
