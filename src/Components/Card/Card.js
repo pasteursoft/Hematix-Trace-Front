@@ -22,13 +22,7 @@ function Cards(props) {
 
 	let renderChartOrMap = null;
 
-	if (props.type === "Mapa") {
-		const mapPoints = {
-			data: props.data.coordinates
-		};
-
-		console.log("Mapa:", mapPoints);
-
+	if (props.type === "Mapa" && props.data.coordinates.length > 0) {
 		renderChartOrMap = (
 			<Map
 				googleMapURL={
@@ -36,15 +30,18 @@ function Cards(props) {
 					googleMapsApiKey +
 					"&libraries=geometry,drawing,places"
 				}
-				markers={mapPoints.data}
+				markers={props.data.coordinates}
 				loadingElement={<div style={{ height: "280px" }} />}
 				containerElement={<div style={{ height: "280px" }} />}
 				mapElement={<div style={{ height: `280px` }} />}
-				defaultCenter={{ lat: 20.6736, lng: -103.344 }}
+				defaultCenter={{
+					lat: props.data.coordinates[0].latitude,
+					lng: props.data.coordinates[0].longitude
+				}}
 				defaultZoom={8}
 			/>
 		);
-	} else {
+	} else if (props.type !== "Mapa" && props.data.data.length > 0) {
 		const optionsChart = {
 			xaxis: {
 				categories: props.data.dateTime

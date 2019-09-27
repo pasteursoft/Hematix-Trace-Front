@@ -41,56 +41,64 @@ function Charts(props) {
 
 	useEffect(() => {
 		if (props.selectedMac !== "") {
-			axios
-				.get(
-					"http://192.168.0.34:2052/api/Measurements/MeasurementsData/" +
-						props.selectedMac,
-					{
-						data: {
-							page: 1,
-							startDate: props.startDate,
-							endDate: props.endDate
-						}
-					}
-				)
-				.then(res => {
-					console.log(res);
-					if (res.data.results.length > 0) {
-						const values = res.data.results;
-						const coordinates = [];
-						const battery = {
-							data: [],
-							dateTime: []
-						};
-						const temperature = {
-							data: [],
-							dateTime: [],
-							unit: ""
-						};
-
-						const dateTimeArray = [];
-
-						for (let index = 0; index < values.length; index++) {
-							if (values[index].latitude !== 0) {
-								coordinates.push({
-									latitude: values[index].latitude,
-									longitude: values[index].longitude
-								});
-							}
-
-							battery.data.push(values[index].batteryLevel);
-							dateTimeArray.push(values[index].dateTime);
-							temperature.data.push(values[index].temperature.value);
-						}
-						battery.dateTime = dateTimeArray;
-						temperature.dateTime = dateTimeArray;
-						temperature.unit = values[0].temperature.unit;
-
-						setMapCoordinates({ coordinates: coordinates });
-						setTemperatureData(temperature);
-						setBatteryData(battery);
+			async function fetchData() {
+				const instance = axios.create({
+					headers: {
+						"Content-Type": "application/json"
 					}
 				});
+
+				await instance
+					.get(
+						"http://192.168.0.38:2052/api/Measurements/MeasurementsData/" +
+							props.selectedMac,
+						{
+							data: {
+								page: 1,
+								startDate: props.startDate,
+								endDate: props.endDate
+							}
+						}
+					)
+					.then(res => {
+						if (res.data.results.length > 0) {
+							const values = res.data.results;
+							const coordinates = [];
+							const battery = {
+								data: [],
+								dateTime: []
+							};
+							const temperature = {
+								data: [],
+								dateTime: [],
+								unit: ""
+							};
+
+							const dateTimeArray = [];
+
+							for (let index = 0; index < values.length; index++) {
+								if (values[index].latitude !== 0) {
+									coordinates.push({
+										latitude: values[index].latitude,
+										longitude: values[index].longitude
+									});
+								}
+
+								battery.data.push(values[index].batteryLevel);
+								dateTimeArray.push(values[index].dateTime);
+								temperature.data.push(values[index].temperature.value);
+							}
+							battery.dateTime = dateTimeArray;
+							temperature.dateTime = dateTimeArray;
+							temperature.unit = values[0].temperature.unit;
+
+							setTemperatureData(temperature);
+							setBatteryData(battery);
+							setMapCoordinates({ coordinates: coordinates });
+						}
+					});
+			}
+			fetchData();
 		}
 	}, [props.selectedMac, props.endDate, props.startDate]);
 

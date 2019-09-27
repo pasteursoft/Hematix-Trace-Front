@@ -1,5 +1,5 @@
 /* global google */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
 	withGoogleMap,
 	GoogleMap,
@@ -8,24 +8,20 @@ import {
 	DirectionsRenderer
 } from "react-google-maps";
 
-class MapDirectionsRenderer extends React.Component {
-	// state = {
-	// 	directions: null,
-	// 	error: null
-	// };
-
-	mapInfo = {
+function MapDirectionsRenderer(props) {
+	const [mapInfo, setMapInfo] = useState({
 		directions: null,
 		error: null
-	};
+	});
 
-	componentDidUpdate() {
-		console.log("Update");
-		const { places, travelMode } = this.props;
+	useEffect(() => {
+		const places = props.places;
+		const travelMode = props.travelMode;
+		//const { places, travelMode } = props;
 		const waypoints = places.map(p => {
 			return {
 				location: { lat: p.latitude, lng: p.longitude },
-				stopover: true
+				stopover: false
 			};
 		});
 
@@ -37,8 +33,6 @@ class MapDirectionsRenderer extends React.Component {
 			destination = waypoints.pop().location;
 		}
 
-		console.log("After shift:", waypoints);
-
 		const directionsService = new google.maps.DirectionsService();
 		directionsService.route(
 			{
@@ -47,50 +41,49 @@ class MapDirectionsRenderer extends React.Component {
 				travelMode: travelMode,
 				waypoints: waypoints
 			},
-			(result, status) => {
+			async (result, status) => {
 				if (status === google.maps.DirectionsStatus.OK) {
-					// this.setState({
-					// 	directions: result
-					// });
-					console.log("Result:", result);
-					this.mapInfo.directions = result;
+					setMapInfo(oldState => ({
+						...oldState,
+						directions: result
+					}));
 				} else {
-					// this.setState({ error: result });
-					this.mapInfo.error = result;
+					setMapInfo(oldState => ({
+						...oldState,
+						error: result
+					}));
 				}
 			}
 		);
-	}
+	}, [props.places, props.travelMode]);
 
-	render() {
-		if (this.mapInfo.error) {
-			return <h1>{this.mapInfo.error}</h1>;
-		}
-		console.log("Directions:", this.mapInfo.directions);
-		return (
-			this.mapInfo.directions && (
-				<DirectionsRenderer directions={this.mapInfo.directions} />
-			)
-		);
+	if (mapInfo.error) {
+		//return <h1>{mapInfo.error}</h1>;
+		return null;
 	}
+	return (
+		mapInfo.directions && <DirectionsRenderer directions={mapInfo.directions} />
+	);
 }
 
 const Map = withScriptjs(
-	withGoogleMap(props => (
-		<GoogleMap
-			defaultCenter={props.defaultCenter}
-			defaultZoom={props.defaultZoom}
-		>
-			{props.markers.map((marker, index) => {
-				const position = { lat: marker.latitude, lng: marker.longitude };
-				return <Marker key={index} position={position} />;
-			})}
-			<MapDirectionsRenderer
-				places={props.markers}
-				travelMode={google.maps.TravelMode.DRIVING}
-			/>
-		</GoogleMap>
-	))
+	withGoogleMap(props => {
+		return (
+			<GoogleMap
+				defaultCenter={props.defaultCenter}
+				defaultZoom={props.defaultZoom}
+			>
+				{props.markers.map((marker, index) => {
+					const position = { lat: marker.latitude, lng: marker.longitude };
+					return <Marker key={index} position={position} />;
+				})}
+				<MapDirectionsRenderer
+					places={props.markers}
+					travelMode={google.maps.TravelMode.WALKING}
+				/>
+			</GoogleMap>
+		);
+	})
 );
 
 export default Map;
