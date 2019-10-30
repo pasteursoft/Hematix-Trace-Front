@@ -1,0 +1,18 @@
+General:
+    ✔ Generalziar estructura de css para colores principalmente. @done (29/10/2019 18:45:01)
+    ☐ Que pueda ser traducible, convertir todos los tectos en viariables. 
+    ☐ Tomar del package.json el nombre la compania y todo para la información de la versión. 
+Footer:
+    ✔ Icono, información de versión configurable ambos @done (28/10/2019 13:46:07)
+    ✔ marcar en el punto donde te encuentas en el menu inferior @done (25/10/2019 17:37:27)
+Header: 
+    ✔ logo de client. @done (28/10/2019 14:21:14)
+    ✔ logo client @done (29/10/2019 18:44:31)
+    ☐ Usuario, avatar y cerrar sesión; que sea responsivo tambien 
+Menú lateral:
+    ✔ Menu lateral con boton para expandir en header @done (29/10/2019 18:04:25)
+    ✔ Si etán minimizados poner tool tip. @done (29/10/2019 18:04:31)
+    ✔ Arriba rojo. @done (29/10/2019 18:04:33)
+
+Botón plus:
+    ☐ Multiboton plus acciones multiples  

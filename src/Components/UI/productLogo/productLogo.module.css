@@ -1,0 +1,50 @@
+.logo {
+	height: 50px;
+	width: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.speech_bubble_content {
+	margin: 10px auto;
+	padding: 15px;
+	font-family: arial;
+	position: relative;
+}
+
+.speech_bubble {
+	position: relative;
+	padding: 15px;
+	margin: 0em 0em 1.6em;
+	border: 2px solid #cccccc;
+	color:#cccccc;
+	background:#fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.speech_bubble:before {
+	content: "";
+	position: absolute;
+	bottom: -20px;
+	left: 25px;
+	border-width: 20px 20px 0;
+	border-style: solid;
+	border-color: #cccccc transparent;
+	display: block;
+	width: 0;
+}
+
+/* creates the smaller  triangle */
+.speech_bubble:after {
+	content: "";
+	position: absolute;
+	bottom: -17px;
+	left: 27px; 
+	border-width: 18px 18px 0;
+	border-style: solid;
+	border-color: #fff transparent;
+	display: block;
+	width: 0;
+  }

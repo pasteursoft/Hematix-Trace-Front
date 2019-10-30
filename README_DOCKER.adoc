@@ -1,0 +1,16 @@
+HEMATIX_TRACE_ENDPOINT_URL_BASE=http://medicosoft.com.mx:2052
+HEMATIX_TRACE_LAST_DEVICE_SATAUS=${HEMATIX_TRAVE_ENDPOINT_URL_BASE}/api/Measurements/LastDeviceStatus/
+HEMATIX_TRACE_DEVICE_DATA=${HEMATIX_TRAVE_ENDPOINT_URL_BASE}/api/Measurements/LastDeviceStatus/MeasurementsData/
+
+
+
+
+
+
+
+
+
+
+HEMATIX_TRACE_ENDPOINT_URL_BASE=http://medicosoft.com.mx:2052
+HEMATIX_TRACE_LAST_DEVICE_SATAUS=${HEMATIX_TRAVE_ENDPOINT_URL_BASE}/api/Measurements/LastDeviceStatus/
+HEMATIX_TRACE_DEVICE_DATA=http://medicosoft.com.mx:2052/api/Measurements/LastDeviceStatus/MeasurementsData/

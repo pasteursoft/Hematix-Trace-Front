@@ -1,14 +1,15 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
+import React from "./node_modules/react";
+import { makeStyles } from "./node_modules/@material-ui/core/styles";
+import Card from "./node_modules/@material-ui/core/Card";
+import CardContent from "./node_modules/@material-ui/core/CardContent";
+import Typography from "./node_modules/@material-ui/core/Typography";
 
-import Map from "../UI/Map/Map";
+import Map from "../ui/maps/Map";
 
 import Chart from "react-apexcharts";
 
-const googleMapsApiKey = "AIzaSyBgq1CzLtAXz1zsIM_MZIa6pYzpA5XSWiM";
+const googleMapsApiKey = (process.env.REACT_APP_API_KEY_GOOGLE !== "") 
+	? process.env.REACT_APP_API_KEY_GOOGLE : "AIzaSyBgq1CzLtAXz1zsIM_MZIa6pYzpA5XSWiM";
 
 const useStyles = makeStyles(theme => ({
 	card: {
