@@ -16,6 +16,8 @@ import Movements from '../../pages/movements';
 import Measurements from '../../pages/measurements';
 import Localization from '../../pages/localization';
 import Containers from '../../pages/containers';
+import ConfigurationContainer from '../../pages/configurationContainer';
+import ContainersTemperatures from '../../pages/containersTemperatures';
 import Users from '../../pages/users';
 
 const App = ({store}) => (
@@ -33,6 +35,8 @@ const App = ({store}) => (
                     <Route path="/localization" component={Localization} />
                     <Route path="/containers" component={Containers} />
                     <Route path="/users" component={Users} />
+                    <Route path="/configurationContainer" component={ConfigurationContainer} />
+                    <Route path="/containersTemperatures" component={ContainersTemperatures} />
                     <Route component={NotFound} />
                 </Switch>
             </Router>

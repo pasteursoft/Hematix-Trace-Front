@@ -1,3 +1,18 @@
+Script de Zebbra para hieleras
+
+OD
+N
+I8,1,034
+D10
+B90,30,0,1,1,4,100,N,"60-01-94-79-7B-4B"
+A110,140,0,1,1,2,N,"60-01-94-79-7B-4B"
+P1
+UA
+
+Para los codigos de barras
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

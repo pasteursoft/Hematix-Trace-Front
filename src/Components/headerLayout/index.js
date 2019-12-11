@@ -1,7 +1,6 @@
-import React from 'react';
-import clsx from 'clsx';
-import {useState} from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import React, {useState} from '../../../node_modules/react';
+import clsx from '../../../node_modules/clsx';
+import { makeStyles, useTheme } from '../../../node_modules/@material-ui/core/styles';
 import {Typography, 
 	IconButton,
 	Drawer, 
@@ -13,21 +12,21 @@ import {Typography,
 	ListItemIcon,
 	ListItem, 
 	ListItemText,
-	Tooltip} from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import ErrorIcon from '@material-ui/icons/Error';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'; 
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'; 
-import HomeIcon from '@material-ui/icons/Home';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import TimelineIcon from '@material-ui/icons/Timeline';
-import LocalShippingIcon from '@material-ui/icons/LocalShipping';
-import SwapHorizIcon from '@material-ui/icons/SwapHoriz';
-import MapIcon from '@material-ui/icons/Map';
-import PeopleIcon from '@material-ui/icons/People';
+	Tooltip} from '../../../node_modules/@material-ui/core';
+import MenuIcon from '../../../node_modules/@material-ui/icons/Menu';
+import ErrorIcon from '../../../node_modules/@material-ui/icons/Error';
+import ChevronLeftIcon from '../../../node_modules/@material-ui/icons/ChevronLeft'; 
+import ChevronRightIcon from '../../../node_modules/@material-ui/icons/ChevronRight'; 
+import HomeIcon from '../../../node_modules/@material-ui/icons/Home';
+import ExitToAppIcon from '../../../node_modules/@material-ui/icons/ExitToApp';
+import TimelineIcon from '../../../node_modules/@material-ui/icons/Timeline';
+import LocalShippingIcon from '../../../node_modules/@material-ui/icons/LocalShipping';
+import SwapHorizIcon from '../../../node_modules/@material-ui/icons/SwapHoriz';
+import MapIcon from '../../../node_modules/@material-ui/icons/Map';
+import PeopleIcon from '../../../node_modules/@material-ui/icons/People';
+import AccountCircleIcon from '../../../node_modules/@material-ui/icons/AccountCircle';
 import Footer from '../footer';
-import ClientLogo from '../ui/clientLogo';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ClientLogo from '../clientLogo';
 
 const drawerWidth = 240;
 
@@ -118,9 +117,18 @@ export default ({props}) => {
 		{key: 'HOME', value: 'Inicio', eventHandle: e => {props.history.push('/')} },
 		{key: 'MOVEMENTS', value: 'Traspasos', eventHandle: e => {props.history.push('/movements')} },
 		{key: 'MEASUREMENTS', value: 'Temperaturas', eventHandle: e => {props.history.push('/measurements')} },
-		{key: 'LOCALIZATION', value: 'Localización', eventHandle: e => {props.history.push('/localization')} },
 		{key: 'CONATINERS', value: 'Contenedores', eventHandle: e => {props.history.push('/containers')} }];
 	const secondaryMenu = [{key: 'USERS', value: 'Usuarios', eventHandle: e => {props.history.push('/users')} }];
+	/*
+	* Se comenta en este momento como lo deseado sin embargo por cerrar primera versión se quitaron opciones
+	* const mainMenu = [
+	* 	{key: 'HOME', value: 'Inicio', eventHandle: e => {props.history.push('/')} },
+	* 	{key: 'MOVEMENTS', value: 'Traspasos', eventHandle: e => {props.history.push('/movements')} },
+	* 	{key: 'MEASUREMENTS', value: 'Temperaturas', eventHandle: e => {props.history.push('/measurements')} },
+	* 	{key: 'LOCALIZATION', value: 'Localización', eventHandle: e => {props.history.push('/localization')} },
+	* 	{key: 'CONATINERS', value: 'Contenedores', eventHandle: e => {props.history.push('/containers')} }];
+	* const secondaryMenu = [{key: 'USERS', value: 'Usuarios', eventHandle: e => {props.history.push('/users')} }];
+	*/
 	const classes = useStyles();
 	const theme = useTheme();
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -180,9 +188,12 @@ export default ({props}) => {
 					<div className={classes.growMenu}>
 						<div className={classes.headerMenu} >
 							<div className={classes.growMenu} />
-							<AccountCircleIcon fontSize="large" />
-							<Typography variant="h5" >Usuario</Typography>
-							<ExitToAppIcon fontSize="large" />
+							{/*
+							  * Se comenta sección por que aún no se implementa lo de usuarios. 
+							  *   <AccountCircleIcon fontSize="large" />
+							  *   <Typography variant="h5" >Usuario</Typography>
+							  *   <ExitToAppIcon fontSize="large" />
+							  */}
 						</div>
 					</div>
 				</Toolbar>
@@ -217,17 +228,20 @@ export default ({props}) => {
 						</ListItem>
 					))}
 				</List>
-				{renderDivider(secondaryMenu)}
-				<List>
-					{secondaryMenu.map(obj => (
-							<ListItem button key={obj.value} onClick={obj.eventHandle}>
-								<Tooltip title={!menuOpen ? obj.value : ""}>
-										<ListItemIcon>{renderMainMenu(obj.key)}</ListItemIcon>
-								</Tooltip>
-								<ListItemText primary={obj.value} />
-							</ListItem>
-						))}
-				</List>
+				{/*
+					Se comenta en este momento debido a que no se ha implementado lo de usuarios. 
+					{renderDivider(secondaryMenu)}
+					<List>
+						{secondaryMenu.map(obj => (
+								<ListItem button key={obj.value} onClick={obj.eventHandle}>
+									<Tooltip title={!menuOpen ? obj.value : ""}>
+											<ListItemIcon>{renderMainMenu(obj.key)}</ListItemIcon>
+									</Tooltip>
+									<ListItemText primary={obj.value} />
+								</ListItem>
+							))}
+					</List>
+				*/}
 				<div className={classes.toolbar} />
 			</Drawer>
 			<main className={classes.content}>

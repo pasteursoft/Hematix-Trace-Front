@@ -1,6 +1,6 @@
 /* global google */
 import React, { useEffect, useState } from "react";
-import {
+import { Polyline,
 	withGoogleMap,
 	GoogleMap,
 	withScriptjs,
@@ -8,6 +8,7 @@ import {
 	DirectionsRenderer
 } from "react-google-maps";
 
+/*
 function MapDirectionsRenderer(props) {
 	const [mapInfo, setMapInfo] = useState({
 		directions: null,
@@ -15,7 +16,7 @@ function MapDirectionsRenderer(props) {
 	});
 
 	useEffect(() => {
-		const places = props.places;
+		const places = props.places;	
 		const travelMode = props.travelMode;
 		//const { places, travelMode } = props;
 		const waypoints = places.map(p => {
@@ -33,7 +34,7 @@ function MapDirectionsRenderer(props) {
 			destination = waypoints.pop().location;
 		}
 
-		const directionsService = new google.maps.DirectionsService();
+		const directionsService = new google.maps.Polyline();
 		directionsService.route(
 			{
 				origin: origin,
@@ -64,26 +65,65 @@ function MapDirectionsRenderer(props) {
 	return (
 		mapInfo.directions && <DirectionsRenderer directions={mapInfo.directions} />
 	);
-}
+
+
+} */
 
 const Map = withScriptjs(
 	withGoogleMap(props => {
+
+		const cordinates =  [
+			{ lat: 0, lng: 0 },
+			{ lat: 10, lng: 10 },
+			{ lat: 20, lng: 20 },
+			{ lat: 30, lng: 30 },
+			{ lat: 40, lng: 40 },
+			{ lat: 55, lng: 50 }
+		  ];
+
+		
 		return (
-			<GoogleMap
-				defaultCenter={props.defaultCenter}
-				defaultZoom={props.defaultZoom}
-			>
-				{props.markers.map((marker, index) => {
-					const position = { lat: marker.latitude, lng: marker.longitude };
-					return <Marker key={index} position={position} />;
-				})}
-				<MapDirectionsRenderer
-					places={props.markers}
-					travelMode={google.maps.TravelMode.WALKING}
-				/>
+			<GoogleMap defaultCenter={props.defaultCenter}
+			defaultZoom={props.defaultZoom}>
+
+
+			{props.markers.map((marker, index) => {
+							const position = { lat: marker.latitude, lng: marker.longitude };
+							return <Marker key={index} position={position} />;
+						})}
+
+				<Polyline
+					path={cordinates}
+					clickable
+					options={{
+						strokeColor: '#A21F3B',
+						strokeOpacity: '0.8',
+						strokeWeight: 4
+					}}
+					visible
+					/>
+				
 			</GoogleMap>
 		);
 	})
 );
 
 export default Map;
+
+/*
+
+			<GoogleMap
+				defaultCenter={props.defaultCenter}
+				defaultZoom={props.defaultZoom}
+			>
+<MapDirectionsRenderer
+					places={props.markers}
+					travelMode={google.maps.TravelMode.WALKING}
+				/>
+
+
+				{props.markers.map((marker, index) => {
+					const position = { lat: marker.latitude, lng: marker.longitude };
+					return <Marker key={index} position={position} />;
+				})}
+*/

@@ -2,11 +2,18 @@
  * MedicoSoft (c) 2019
  * Made under Proprietary license
  */
-import { all } from 'redux-saga/effects';
-import getMeasurementData from './getMeasurementsData';
+import { all, take } from 'redux-saga/effects';
+import MeasurementsService from './MeasurementsService';
+import ConfigurationsService from './ConfigurationsService';
+import LastDeviceStatusBulk from './LastDeviceStatusBulk';
+import MeasurementsServiceBulk from './MeasurementsServiceBulk';
+
 
 export default function* rootSaga() {
 	yield all([
-		getMeasurementData()
+		ConfigurationsService(),
+		MeasurementsService(),
+		LastDeviceStatusBulk(),
+		MeasurementsServiceBulk(),
 	]);
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../../assets/img/LogoHematixColor.png';
+import Logo from '../../assets/img/LogoHematixColor.png';
 import Popper from '@material-ui/core/Popper';
 import Typography from '@material-ui/core/Typography';
 import Fade from '@material-ui/core/Fade';

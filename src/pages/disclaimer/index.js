@@ -1,9 +1,23 @@
 import React from '../../../node_modules/react';
-import Typography from '../../../node_modules/@material-ui/core/Typography'
+import { Typography, Container } from '../../../node_modules/@material-ui/core'
 import MainLayout from '../../components/layout/mainLayout';
 
-export default ({location, history}) => ( 	
-	<MainLayout location={location} history={history}>
-		<Typography variant='h1'>Renuncia de resposabilidad</Typography>
-	</MainLayout>
-);
+import Alert from '../../components/alert';
+import { MESSAGE_TYPE } from '../../components/alert/messageType';
+
+export default ({location, history}) => {
+	return ( 	
+		<MainLayout location={location} history={history}>
+			<Typography variant='h1'>Renuncia de resposabilidad</Typography>
+			<React.Fragment>
+				<Container>
+				<Alert messageType={MESSAGE_TYPE.ERROR} message={"ErrorErrorErrorErrorErrorErrorErrorErrorErrovrErrorErrorvErrovrErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErro rErrorErrorErr orErrorErrorErrorEr rorErrorErrorErrorEr rorErrorErrorErrorErrorE rrorErrorErrorErrorEr rorErrorErrorError ErrorErrorError"}/>
+				<Alert messageType={MESSAGE_TYPE.INFO} message={"Información"}/>
+				<Alert messageType={MESSAGE_TYPE.CORRECT} message={"Correcto"}/>
+				<Alert messageType={MESSAGE_TYPE.HELP} message={"Ayuda"}/>
+				<Alert messageType={MESSAGE_TYPE.ALERT} message={"Alerta"}/>
+				</Container>
+			</React.Fragment>
+		</MainLayout>
+	);
+};

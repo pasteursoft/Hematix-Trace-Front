@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../../assets/img/LogoClienteBlanco.png';
+import Logo from '../../assets/img/LogoClienteBlanco.png';
 import classes from './clientLogo.module.css';
  
 export default () => {

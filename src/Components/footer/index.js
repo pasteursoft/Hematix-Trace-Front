@@ -6,7 +6,7 @@ import Button from "../../../node_modules/@material-ui/core/Button";
 import IconButton from "../../../node_modules/@material-ui/core/IconButton";
 import MenuItem from "../../../node_modules/@material-ui/core/MenuItem";
 import Menu from "../../../node_modules/@material-ui/core/Menu";
-import ProductLogo from "../ui/productLogo";
+import ProductLogo from "../productLogo";
 import MoreIcon from "../../../node_modules/@material-ui/icons/MoreVert";
 
 const useStyles = makeStyles(theme => ({

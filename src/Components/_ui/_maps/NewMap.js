@@ -20,7 +20,6 @@ class MapDirectionsRenderer extends React.Component {
 	// };
 
 	componentDidMount() {
-		console.log("ComponentDidmMount");
 		const { places, travelMode } = this.props;
 		const waypoints = places.map(p => {
 			return {
@@ -37,8 +36,6 @@ class MapDirectionsRenderer extends React.Component {
 			destination = waypoints.pop().location;
 		}
 
-		console.log("After shift:", waypoints);
-
 		const directionsService = new google.maps.DirectionsService();
 		directionsService.route(
 			{
@@ -52,7 +49,6 @@ class MapDirectionsRenderer extends React.Component {
 					this.setState({
 						directions: result
 					});
-					console.log("Result:", result);
 					//this.mapInfo.directions = result;
 				} else {
 					this.setState({ error: result });
@@ -66,7 +62,6 @@ class MapDirectionsRenderer extends React.Component {
 		if (this.state.error) {
 			return <h1>{this.state.error}</h1>;
 		}
-		console.log("Directions:", this.state.directions);
 		return (
 			this.state.directions && (
 				<DirectionsRenderer directions={this.state.directions} />

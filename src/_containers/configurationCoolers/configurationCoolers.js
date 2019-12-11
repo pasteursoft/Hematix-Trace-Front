@@ -89,7 +89,6 @@ function configurationCoolers() {
 			dateAux.getMinutes() +
 			":" +
 			dateAux.getSeconds();
-		console.log("Hora final:", hourFinal);
 		setEndTime({ value: hourFinal });
 	};
 
@@ -101,7 +100,6 @@ function configurationCoolers() {
 			dateAux.getMinutes() +
 			":" +
 			dateAux.getSeconds();
-		console.log("Hora inicio:", hourFinal);
 		setStartTime({ value: hourFinal });
 	};
 

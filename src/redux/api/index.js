@@ -4,11 +4,10 @@
  */
 import axios from 'axios';
 
-const baseUrlMeasurementService = 'http://medicosoft.com.mx:2052/api/Measurements/MeasurementsData/';
-
-export const apiCall = (url, data, headers, method) => axios({
+// params = queryParams y uriParams
+export const apiCall = (baseUrl, params, data, headers, method) => axios({
     method,
-    url: baseUrlMeasurementService + url,
+    url: (params != null) ? baseUrl + params : baseUrl,
     headers,
     data
 });
