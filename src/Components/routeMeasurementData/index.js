@@ -16,9 +16,9 @@ import { configurationsResult,
 		configurationsError,
 		configurationsResponse
 	 } from '../../redux/selectors';
-import Alert from '../../components/alert';
-import ContainerRouteCard from '../../components/cards/containerRouteCard';
-import { MESSAGE_TYPE } from '../../components/alert/messageType';
+import Alert from '../../Components/alert';
+import ContainerRouteCard from '../../Components/cards/containerRouteCard';
+import { MESSAGE_TYPE } from '../../Components/alert/messageType';
 
 const useStyles = makeStyles({
 	field: {

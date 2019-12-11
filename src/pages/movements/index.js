@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography'
-import MainLayout from '../../components/layout/mainLayout';
+import MainLayout from '../../Components/layout/mainLayout';
 
 export default ({location, history}) => ( 	
 	<MainLayout location={location} history={history}>

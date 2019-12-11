@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
-import Select from "../../components_revisar/UI/Select/Select";
-import DatePicker from "../../components_revisar/ui/datePickers/DatePicker";
-import HourPicker from "../../components_revisar/ui/hourPickers/HourPicker";
+import Select from "../../Components_revisar/UI/Select/Select";
+import DatePicker from "../../Components_revisar/ui/datePickers/DatePicker";
+import HourPicker from "../../Components_revisar/ui/hourPickers/HourPicker";
 import Charts from "../charts/charts";
 
 import axios from "axios";

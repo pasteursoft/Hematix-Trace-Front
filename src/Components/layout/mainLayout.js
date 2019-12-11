@@ -1,6 +1,6 @@
 import React from 'react';
 
-import HeaderLayout from '../../components/headerLayout';
+import HeaderLayout from '../../Components/headerLayout';
 
 export default (props) => {
     return (

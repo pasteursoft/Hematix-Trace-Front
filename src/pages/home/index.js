@@ -6,17 +6,17 @@ import React, { useEffect, useState } from '../../../node_modules/react';
 import {Typography, CircularProgress, Grid, makeStyles} from '../../../node_modules/@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import queryString from 'query-string';
-import Paginator from '../../components/paginator';
-import MainLayout from '../../components/layout/mainLayout';
-import ContainerLastStatusCard from '../../components/cards/containerLastStatusCard'; 
+import Paginator from '../../Components/paginator';
+import MainLayout from '../../Components/layout/mainLayout';
+import ContainerLastStatusCard from '../../Components/cards/containerLastStatusCard'; 
 import { LastDeviceStatusBulkData } from '../../redux/actions/LastDeviceStatusBulk';
 import { isLastDeviceStatusBulkLoading,
 		lastDeviceStatusBulkResult,
 		lastDeviceStatusBulkError,
 		lastDeviceStatusBulkResponse
 	 } from '../../redux/selectors';
-import Alert from '../../components/alert';
-import { MESSAGE_TYPE } from '../../components/alert/messageType';
+import Alert from '../../Components/alert';
+import { MESSAGE_TYPE } from '../../Components/alert/messageType';
 
 const useStyles = makeStyles({
 	rootTitles: {

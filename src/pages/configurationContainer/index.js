@@ -1,6 +1,6 @@
 import React from 'react';
-import ConfigurationCard from '../../components/configurationCard'
-import MainLayout from '../../components/layout/mainLayout';
+import ConfigurationCard from '../../Components/configurationCard'
+import MainLayout from '../../Components/layout/mainLayout';
 import queryString from 'query-string';
 
 export default ({location, history}) => {

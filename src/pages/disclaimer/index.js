@@ -1,9 +1,9 @@
 import React from '../../../node_modules/react';
 import { Typography, Container } from '../../../node_modules/@material-ui/core'
-import MainLayout from '../../components/layout/mainLayout';
+import MainLayout from '../../Components/layout/mainLayout';
 
-import Alert from '../../components/alert';
-import { MESSAGE_TYPE } from '../../components/alert/messageType';
+import Alert from '../../Components/alert';
+import { MESSAGE_TYPE } from '../../Components/alert/messageType';
 
 export default ({location, history}) => {
 	return ( 	

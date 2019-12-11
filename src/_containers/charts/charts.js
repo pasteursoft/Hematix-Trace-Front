@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "./node_modules/react";
 import { makeStyles } from "./node_modules/@material-ui/core/styles";
 import Grid from "./node_modules/@material-ui/core/Grid";
 
-import Card from "../../components_revisar/Card/Card";
+import Card from "../../Components_revisar/Card/Card";
 
 import axios from "./node_modules/axios";
 

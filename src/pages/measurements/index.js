@@ -2,8 +2,8 @@ import React from '../../../node_modules/react';
 import { Typography, 
 	Grid, 
 	makeStyles } from '../../../node_modules/@material-ui/core';
-import MainLayout from '../../components/layout/mainLayout';
-import RouteMeasurementData from '../../components/routeMeasurementData';
+import MainLayout from '../../Components/layout/mainLayout';
+import RouteMeasurementData from '../../Components/routeMeasurementData';
 import queryString from 'query-string';
 
 const useStyles = makeStyles({

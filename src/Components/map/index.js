@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { MAP_TYPES } from "./mapsEnums";
 import MapPolyline from "../mapPolyline";
 import { makeStyles } from '@material-ui/core/styles';
-import Alert from '../../components/alert';
-import { MESSAGE_TYPE } from '../../components/alert/messageType';
+import Alert from '../../Components/alert';
+import { MESSAGE_TYPE } from '../../Components/alert/messageType';
 
 const googleMapsApiKey = process.env.REACT_APP_API_KEY_GOOGLE;
 

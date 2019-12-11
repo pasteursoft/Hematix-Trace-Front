@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Grid, makeStyles, withStyles, Divider, Slider, Card, TextField, CardHeader, CardActions, CardContent, Button } from '@material-ui/core'
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
-import MainLayout from '../../components/layout/mainLayout';
+import MainLayout from '../../Components/layout/mainLayout';
 import queryString from 'query-string';
 import SaveIcon from '@material-ui/icons/Save';
 import CancelIcon from '@material-ui/icons/Cancel';

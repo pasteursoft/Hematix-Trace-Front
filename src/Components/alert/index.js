@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { SnackbarContent, Grid, Typography, makeStyles, Divider } from '@material-ui/core';
-import InfoIcon from '@material-ui/icons/Info';
-import HelpIcon from '@material-ui/icons/Help';
-import WarningIcon from '@material-ui/icons/Warning';
-import ErrorIcon from '@material-ui/icons/Error';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import React, { useState } from '../../../node_modules/react';
+import { SnackbarContent, Grid, Typography, makeStyles, Divider } from '../../../node_modules/@material-ui/core';
+import InfoIcon from '../../../node_modules/@material-ui/icons/Info';
+import HelpIcon from '../../../node_modules/@material-ui/icons/Help';
+import WarningIcon from '../../../node_modules/@material-ui/icons/Warning';
+import ErrorIcon from '../../../node_modules/@material-ui/icons/Error';
+import CheckCircleIcon from '../../../node_modules/@material-ui/icons/CheckCircle';
 import { MESSAGE_TYPE } from './messageType';
 
 const messageStyles = {
