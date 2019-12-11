@@ -6,8 +6,6 @@ import React, { useEffect, useState } from '../../../node_modules/react';
 import {Typography, CircularProgress, Grid, makeStyles} from '../../../node_modules/@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import queryString from 'query-string';
-import { TablePagination } from '@material-ui/core';
-
 import Paginator from '../../components/paginator';
 import MainLayout from '../../components/layout/mainLayout';
 import ContainerLastStatusCard from '../../components/cards/containerLastStatusCard'; 
