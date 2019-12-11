@@ -32,6 +32,8 @@ EXPOSE 3000
 COPY . /app
 
 RUN ls -al
+RUN pwd 
+RUN ls ./src
 
 CMD ["npm", "start"]
 
