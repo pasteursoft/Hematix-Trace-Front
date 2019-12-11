@@ -5,7 +5,6 @@ import HelpIcon from '@material-ui/icons/Help';
 import WarningIcon from '@material-ui/icons/Warning';
 import ErrorIcon from '@material-ui/icons/Error';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-
 import { MESSAGE_TYPE } from './messageType';
 
 const messageStyles = {
