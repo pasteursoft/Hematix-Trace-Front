@@ -5,6 +5,8 @@ FROM node:12.10.0-alpine AS build
 
 WORKDIR /app
 
+COPY package.json /app/package.json
+
 ENV PATH /app/node_modules/.bin:$PATH 
 
 ENV TRACE_ALERT_TEMP_MAX 10 \
@@ -21,13 +23,13 @@ ENV TRACE_ALERT_TEMP_MAX 10 \
     TRACE_MEASUREMENTS_DEVICE_DATA ${TRACE_ENDPOINT_MEASUREMENTS_URL_BASE}/api/Measurements/MeasurementsData \
     TRACE_MEASUREMENTS_LAST_DEVICE_SATAUS ${TRACE_ENDPOINT_MEASUREMENTS_URL_BASE}/api/Measurements/LastDeviceStatus
 
-COPY . /app/
-
 RUN npm install --silent
 RUN npm install react-scripts@3.0.1 -g --silent
 RUN npm install dotenv -g --silent
 
 EXPOSE 3000
+
+COPY . /app
 
 CMD ["npm", "start"]
 
