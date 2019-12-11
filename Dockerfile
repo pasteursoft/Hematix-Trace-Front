@@ -1,7 +1,6 @@
 # MedicoSoft (c) 2019
 # Made under Proprietary license
 # Docker image for Node on Debian 10
-
 FROM node:12.10.0-alpine
 
 WORKDIR /app
