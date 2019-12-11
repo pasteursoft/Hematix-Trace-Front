@@ -31,6 +31,8 @@ EXPOSE 3000
 
 COPY . /app
 
+RUN ls -al
+
 CMD ["npm", "start"]
 
 
