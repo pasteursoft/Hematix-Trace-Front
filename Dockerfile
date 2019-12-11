@@ -1,7 +1,7 @@
 # MedicoSoft (c) 2019
 # Made under Proprietary license
 # Docker image for Node on Debian 10
-FROM node:12.10.0-alpine AS build
+FROM node:12.10.0-buster AS build
 
 WORKDIR /app
 
@@ -34,7 +34,6 @@ COPY . /app
 RUN ls -al
 
 CMD ["npm", "start"]
-
 
 # production environment
 #FROM nginx:1.16.1-alpine
