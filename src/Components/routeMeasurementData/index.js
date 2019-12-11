@@ -49,7 +49,7 @@ export default ({...props}) => {
 
 	const [macAddress, setMacAddress] = useState((props.params.macAddress) ? props.params.macAddress : "");
 	const [startDateTime, setStartDateTime] = useState((props.params.startDate) ? new Date(props.params.startDate) : new Date(Date.now() - 3600000) );
-	const [endDateTime, setEndDateTime] = useState( (props.params.endDate) ? new Date(props.params.endDate) : Date.now() );
+	const [endDateTime, setEndDateTime] = useState((props.params.endDate) ? new Date(props.params.endDate) : new Date(Date.now()));
 	const [error, setError] = useState(false);
 	const [errorEndDate, setErrorEndDate] = useState(false);
 	const [errorStartDate, setErrorStartDate] = useState(false);
