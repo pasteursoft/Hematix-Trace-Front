@@ -37,6 +37,7 @@ RUN ls ./src
 
 CMD ["npm", "start"]
 
+
 # production environment
 #FROM nginx:1.16.1-alpine
 #COPY --from=build /app/build /usr/share/nginx/html
