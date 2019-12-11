@@ -28,7 +28,7 @@ RUN npm install react-scripts@3.0.1 -g --silent
 
 EXPOSE 3000
 
-CMD ["npm run", "start"]
+CMD ["npm", "start"]
 
 
 # production environment
