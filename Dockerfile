@@ -25,6 +25,7 @@ COPY . /app/
 
 RUN npm install --silent
 RUN npm install react-scripts@3.0.1 -g --silent
+RUN npm install dotenv -g --silent
 
 EXPOSE 3000
 
