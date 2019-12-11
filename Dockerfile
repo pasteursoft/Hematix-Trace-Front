@@ -1,7 +1,7 @@
 # MedicoSoft (c) 2019
 # Made under Proprietary license
 # Docker image for Node on Debian 10
-FROM node:12.10.0-alpine
+FROM node:12.10.0-alpine AS build
 
 WORKDIR /app
 
@@ -26,4 +26,11 @@ COPY . /app/
 RUN npm install --silent
 RUN npm install react-scripts@3.0.1 -g --silent
 
-CMD ["npm", "start"]
+CMD ["npm run-script", "start"]
+
+
+# production environment
+#FROM nginx:1.16.1-alpine
+#COPY --from=build /app/build /usr/share/nginx/html
+#EXPOSE 80
+#CMD ["nginx", "-g", "daemon off;"]
