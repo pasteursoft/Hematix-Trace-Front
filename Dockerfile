@@ -14,8 +14,9 @@ ENV TRACE_ALERT_TEMP_MAX=10 \
     TRACE_ENDPOINT_CONFIGURATION_URL_BASE=http://medicosoft.mx:2053 \
     TRACE_ENDPOINT_MEASUREMENTS_URL_BASE=http://medicosoft.mx:2052 \
     TRACE_GOOGLE_API_KEY=AIzaSyBgq1CzLtAXz1zsIM_MZIa6pYzpA5XSWiM \
-    TRACE_GOOGLE_API_URL_BASE=https://maps.googleapis.com/maps/api/js?key= \
-    TRACE_CONFIGURATION_CREATE=${TRACE_ENDPOINT_CONFIGURATION_URL_BAS}/api/devicesConfiguration/configuration \
+    TRACE_GOOGLE_API_URL_BASE=https://maps.googleapis.com/maps/api/js?key= 
+    
+ENV TRACE_CONFIGURATION_CREATE=${TRACE_ENDPOINT_CONFIGURATION_URL_BAS}/api/devicesConfiguration/configuration \
     TRACE_CONFIGURATION_DELETE=${TRACE_ENDPOINT_CONFIGURATION_URL_BAS}/api/devicesConfiguration/configuration \
     TRACE_CONFIGURATION_DEVICECONFIGURATION=${TRACE_ENDPOINT_CONFIGURATION_URL_BASE}/api/devicesConfiguration/deviceConfiguration \
     TRACE_CONFIGURATION_SEARCH=${TRACE_ENDPOINT_CONFIGURATION_URL_BASE}/api/devicesConfiguration/search \
