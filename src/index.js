@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import '../src/assets/css/layout/layout.css';
 import '../src/assets/css/font/font.css';
 import '../src/assets/css/styles/styles.css';
-import App from 'components/app';
-import * as serviceWorker from 'serviceWorker';
+import App from '../src/components/app';
+import * as serviceWorker from '../src/serviceWorker';
 
-import configureStore from 'redux/store';
+import configureStore from '../src/redux/store';
 
 const store = configureStore();
 
