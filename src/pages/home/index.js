@@ -45,6 +45,23 @@ export default ({location, history}) => {
 	const lastDeviceStatusBulkCallError = useSelector(state => lastDeviceStatusBulkError(state));
 	const lastDeviceStatusBulkResponses = useSelector(state => lastDeviceStatusBulkResponse(state));
 
+	console.log(process.env.REACT_APP_NAME);
+	console.log(process.env.REACT_APP_VERSION_NAME);
+	console.log(process.env.REACT_APP_VERSION);
+	console.log(process.env.REACT_APP_COMPANY);
+	console.log(process.env.REACT_APP_COMPLET_NAME);
+	console.log(process.env.REACT_APP_TEMP_MAX);
+	console.log(process.env.REACT_APP_TEMP_MIN);
+	console.log(process.env.REACT_APP_API_KEY_GOOGLE);
+	console.log(process.env.REACT_APP_API_URL_BASE);
+	console.log(process.env.REACT_APP_SEARCH_CONFIGURATION_DEVICES);
+	console.log(process.env.REACT_APP_CONFIGURATION_DEVICE);
+	console.log(process.env.REACT_APP_CREATE_CONFIGURATION_DEVICE);
+	console.log(process.env.REACT_APP_UPDATE_CONFIGURATION_DEVICE);
+	console.log(process.env.REACT_APP_DELETE_CONFIGURATION_DEVICE);
+	console.log(process.env.REACT_APP_MEASUREMENTS_LAST_DEVICE_SATAUS);
+	console.log(process.env.REACT_APP_MEASUREMENTS_DEVICE_DATA);
+
 	const configurationDevicesData = () => {
 		if (lastDeviceStatusBulkData && !lastDeviceStatusBulkCallError) {
 			return (
