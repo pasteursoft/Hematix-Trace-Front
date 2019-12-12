@@ -54,5 +54,5 @@ ENV TRACE_CONFIGURATION_CREATE=${TRACE_ENDPOINT_CONFIGURATION_URL_BAS}/api/devic
     TRACE_MEASUREMENTS_LAST_DEVICE_SATAUS=${TRACE_ENDPOINT_MEASUREMENTS_URL_BASE}/api/Measurements/LastDeviceStatus
 
 COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 3000
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
