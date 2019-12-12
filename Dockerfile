@@ -32,7 +32,7 @@ EXPOSE 3000
 
 COPY . /app
 
-RUN nmp run build
+RUN npm run build
 #CMD ["npm", "start"]
 
 # production environment
