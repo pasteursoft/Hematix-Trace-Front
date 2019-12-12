@@ -32,7 +32,8 @@ EXPOSE 3000
 
 COPY . /app
 
-CMD ["npm", "start"]
+RUN nmp run build
+#CMD ["npm", "start"]
 
 # production environment
 FROM nginx:1.16.1-alpine
