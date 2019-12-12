@@ -14,3 +14,15 @@ HEMATIX_TRACE_DEVICE_DATA=${HEMATIX_TRAVE_ENDPOINT_URL_BASE}/api/Measurements/La
 HEMATIX_TRACE_ENDPOINT_URL_BASE=http://medicosoft.com.mx:2052
 HEMATIX_TRACE_LAST_DEVICE_SATAUS=${HEMATIX_TRAVE_ENDPOINT_URL_BASE}/api/Measurements/LastDeviceStatus/
 HEMATIX_TRACE_DEVICE_DATA=http://medicosoft.com.mx:2052/api/Measurements/LastDeviceStatus/MeasurementsData/
+
+
+sudo docker run --restart unless-stopped --name HematixTrace-Front \
+    -p 2070:3000 \
+    -d medicosoft/hematix-trace-front:0.1.1-beta
+
+
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /etc/timezone:/etc/timezone:ro \
+    -v /var/local/medicosoft/measurementsservice/service/logs:/opt/medicosoft/measurementsservice/service/logs \
+    -v /var/local/medicosoft/measurementsservice/service/certs:/opt/medicosoft/measurementsservice/service/certs \
+    -d medicosoft/measurementservice:0.2-beta
