@@ -25,10 +25,8 @@ ENV TRACE_CONFIGURATION_CREATE=${TRACE_ENDPOINT_CONFIGURATION_URL_BAS}/api/devic
     TRACE_MEASUREMENTS_LAST_DEVICE_SATAUS=${TRACE_ENDPOINT_MEASUREMENTS_URL_BASE}/api/Measurements/LastDeviceStatus
 
 RUN npm install --silent
-RUN npm install react-scripts@3.0.1 -g --silent
+RUN npm install react-scripts@3.2.0 -g --silent
 RUN npm install dotenv -g --silent
-
-RUN ping medicosoft.mx
 
 EXPOSE 3000
 
